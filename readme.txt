@@ -1,0 +1,1 @@
+A simple web based chat application where multiple people can chat with each other.
