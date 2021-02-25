@@ -1,0 +1,119 @@
+<!doctype html>
+<html ng-app="chatAgent">
+<head>
+<title>Chat-Agent</title>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/bootstrap.min.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src='https://code.jquery.com/jquery-1.10.2.js'></script>
+<script src="indexjs.js"></script>
+
+<script type='text/javascript' src='/Chatagent/dwr/engine.js'></script>
+<script type='text/javascript' src='/Chatagent/dwr/util.js'></script>
+<script type='text/javascript' src='/Chatagent/dwr/interface/ChatInterface.js'></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="notification_yin_yang notification_yin_yang_rotating"></div>
+    <div><h1 style="text-align:center;">Chat-Agent</h1></div>
+    
+    <div class="container" ng-cloak >
+   	  
+      <div id='pollStatus' onchange="statusChange()" style="display:none;"></div>  
+        
+        <div class='chatbox' ng-controller="chatAgentController">
+             
+             <div style="display:block;width:30%">
+            <div class='chatbox_settings'>
+                <h1>Settings</h1>
+                <div class='chatbox_settings_erase_chat'>
+                    <p class='chatbox_settings_para'>Erase Chat History:
+                    <div class="erase_wrap" onclick="clearChatHistory();" title="Clear Chat"> 
+                        <i class="material-icons erase_icon" id="erase_chat_history" style="margin-top: 0px;font-size:20px;color:White;">delete_sweep</i>
+                        </div>
+                    </p>
+                </div>
+                <div class='chatbox_settings_notifications'>
+                    <p class='chatbox_settings_para'>Notification:                                         
+                        <div class="notify_btnwrap" title="Toggle Notification" onclick="toggleNotification();">
+                            <div class="notify_on_btn"><i class="material-icons nofity_on_icon" style="margin-top: -10px;"></i></div> 
+                            <div class="notify_on_text2">Disabled</div>
+                            <div class="notify_on_text1">Enabled</div>
+                        </div>                    
+                    </p>
+                </div>
+                <div class='chatbox_settings_status'>
+                    <p class='chatbox_settings_para'>Status: 
+                        <div class="status_wrap" title="Status Info" onclick="reverseNotification();">
+                            <i class="material-icons status_on_icon" style="margin-top: 0px;font-size:20px;color:White;"></i>
+                        </div> 
+                    </p>
+                </div>
+                
+                <div class='chatbox_settings_terminate'>
+                    <p class='chatbox_settings_para'>Terminate Session: 
+                        <div class="terminate_wrap" title="Terminate Session" onclick="terminateSession();">
+                            <i class="material-icons terminate_icon" style="margin-top: 0px;font-size:20px;color:White;">settings_power</i>
+                        </div> 
+                    </p>
+                </div>
+                
+            </div>
+                       
+
+             <div class="chatbox_new_user">
+                <h1>New Chat Requests</h1>
+                <div class='chatbox_new_user_requests' >
+<!--                     <div class='chatbox_new_user_req'>
+                        <p class='chatbox_new_user_para'>New User Request:</p>
+                            <div  style="display:inline;"> 
+                                <i class="material-icons user_req_icon" onclick="addNewUser(eventObj)"; style="margin-top: 10px;font-size:20px;color:White;">done</i>
+                                <i class="material-icons user_req_icon" onclick="rejectReq(eventObj);" style="margin-top: 10px;font-size:20px;color:White;">clear</i>
+                            </div>                        
+                    </div> -->
+                </div>
+            </div>
+            </div>
+            
+            
+            <div class="chatbox_area" style="width:50%;">
+                <div class="chatbox_messages"></div>            
+            </div>
+         
+         
+            <div class='chatbox_user_list' style="width:20%;">
+                <h1>Sessions Online</h1>
+ <!--                <div class='chatbox_user_online'>
+                    <p>User 1</p>
+                </div>                
+                <div class='chatbox_user_online'>
+                    <p>User 3</p>
+                </div>
+                <div class='chatbox_user_online'>
+                    <p>User 4</p>
+                </div>
+                <div class='chatbox_user--away'>
+                    <p>User 5</p>
+                </div>
+                <div class='chatbox_user--busy'>
+                    <p>User 2</p>
+                </div> -->
+            </div>
+         
+         
+        <form>
+            <textarea id="answerArea" style="text-align:left;width:100%;resize: none;" type="text" placeholder="Type Message" autofocus wrap="soft" required></textarea>
+        </form>
+        </div>
+
+    
+        
+    </div>
+  
+</body>
+</html>
